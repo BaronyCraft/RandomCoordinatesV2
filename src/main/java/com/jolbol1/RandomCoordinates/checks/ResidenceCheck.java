@@ -19,9 +19,11 @@
 
 package com.jolbol1.RandomCoordinates.checks;
 
-import com.bekvon.bukkit.residence.Residence;
-import com.bekvon.bukkit.residence.protection.ClaimedResidence;
-import com.bekvon.bukkit.residence.protection.CuboidArea;
+// Disabled as Residence has become a paid plugin with a radically different class tree.
+
+// import com.bekvon.bukkit.residence.Residence;
+// import com.bekvon.bukkit.residence.protection.ClaimedResidence;
+// import com.bekvon.bukkit.residence.protection.CuboidArea;
 import com.jolbol1.RandomCoordinates.RandomCoords;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -36,7 +38,7 @@ public class ResidenceCheck {
      * Checks if there is a residence claim within the radius from location.
      * Due to the way residence works, Im going to check each corner of the chunk
      * instead of every block. This means it may not be 100% effective but the odds
-     * of a claim bein small enough to avoid each corner is high.
+     * of a claim being small enough to avoid each corner is high.
      * @return
      */
     public boolean isChunkProtected(Location location)
@@ -48,6 +50,7 @@ public class ResidenceCheck {
         if(!RandomCoords.getPlugin().getConfig().getString("Residence").equalsIgnoreCase("true")) {
             return false;
         }
+/*
         for (ClaimedResidence residence : Residence.getInstance().getResidenceManager().getResidences().values()) {
             if ((!residence.isSubzone()) && (location.getWorld().getName().equals(residence.getWorld()))) {
                 for (CuboidArea area : residence.getAreaMap().values()) {
@@ -57,6 +60,7 @@ public class ResidenceCheck {
                 }
             }
         }
+*/
         return false;
     }
 
